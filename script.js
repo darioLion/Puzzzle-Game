@@ -102,33 +102,17 @@ for (let i=puzzles.length-1; i>=0; i--){
     })
    
 
-
+    var puzzlePadLeft = puzzle.offsetLeft;
+    var puzzlePadTop = puzzle.offsetTop;
+    console.log(puzzlePadTop+"top");
     function move(e){
         console.log("move");
-        //moveElem.style.left = 0+"px";
-         moveElem.style.zIndex = 10;
-        // console.log("moveElem.style.left " + moveElem.style.left);
-       if (puzzles[8].move_id == true ){
-       //   console.log("left "+ (parseInt(moveElem.style.left)+e.pageX- startLeft));
-         moveElem.style.left =  parseInt(moveElem.style.left)+e.pageX- startLeft +  "px";
-          console.log(moveElem.style.left + "left change");
-          console.log("without left"+(e.pageX - startLeft));
-       //   console.log(startLeft + " startLeft");
-       //   console.log( parseInt(moveElem.style.left));
-       //  console.log("!!!!!!!!!" + moveElem.style.left );
-         //moveElem.style.left = e.pageX-startLeft+"px";
-         moveElem.style.top = e.pageY - startTop + "px"; }else{
-      //   else{
-       // moveElem.style.left = 0+"px";
-
-       console.log("push "+ e.pageX+" "+ e.pageY);
-       // moveElem.style.zIndex = 10;
+        moveElem.style.zIndex = 10;
+       // moveElem.style.left =  parseInt(moveElem.style.left)+e.pageX- startLeft +  "px";
         moveElem.style.left = e.pageX-startLeft+"px";
-        console.log("with left "+ (parseInt(moveElem.style.left)+e.pageX- startLeft));
-        console.log("without left"+(e.pageX - startLeft));
-        moveElem.style.top = e.pageY - startTop + "px";}
-       // console.log(e.pageY +"-"+ startTop);
- //  }
+
+        moveElem.style.top = e.pageY - startTop + "px";
+
     }
     function countPuzzleOffsetX(id_false){
         var currPosX = id_false % 4;
@@ -146,7 +130,7 @@ for (let i=puzzles.length-1; i>=0; i--){
               
            //    console.log(offsetX +"<="+ upCoordX+ " && "+ upCoordX + "<=" + (offsetX+puzzlePartW) +" && "+ offsetY+" <= "+upCoordY+ " && "+ upCoordY +" <= " + (offsetY+puzzlePartH ));
                 if(offsetX <= upCoordX && upCoordX <= offsetX+puzzlePartW && offsetY <= upCoordY &&  upCoordY <= offsetY+puzzlePartH ){
-                    console.log("id "+puzzles[i].id_false);
+
                     return puzzles[i].id_false;
                 }
           //  }
@@ -155,7 +139,7 @@ for (let i=puzzles.length-1; i>=0; i--){
 
     function changePuzzlePlace(selectedPuzzleID, puzzleForChangeID){
         if(selectedPuzzleID != puzzleForChangeID){
-        console.log("id to chnge "+selectedPuzzleID + " "+ puzzleForChangeID);
+
         var firstElem = document.getElementById(selectedPuzzleID.toString());
         var secondElem = document.getElementById(puzzleForChangeID.toString());
         var firstElemOffsetX = countPuzzleOffsetX(selectedPuzzleID);
