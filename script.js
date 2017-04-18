@@ -109,7 +109,9 @@ for (let i=puzzles.length-1; i>=0; i--){
         console.log("move");
         moveElem.style.zIndex = 10;
        // moveElem.style.left =  parseInt(moveElem.style.left)+e.pageX- startLeft +  "px";
-        moveElem.style.left = e.pageX-startLeft+"px";
+        if (e.pageX-startLeft <= puzzlePadLeft){
+            console.log(e.pageX-startLeft +" "+ puzzlePadLeft + " ldldldlddll");
+        moveElem.style.left = e.pageX-startLeft+"px";}
 
         moveElem.style.top = e.pageY - startTop + "px";
 
