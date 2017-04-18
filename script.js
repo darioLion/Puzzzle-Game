@@ -109,11 +109,14 @@ for (let i=puzzles.length-1; i>=0; i--){
         console.log("move");
         moveElem.style.zIndex = 10;
        // moveElem.style.left =  parseInt(moveElem.style.left)+e.pageX- startLeft +  "px";
-        if (e.pageX-startLeft <= puzzlePadLeft){
-            console.log(e.pageX-startLeft +" "+ puzzlePadLeft + " ldldldlddll");
-        moveElem.style.left = e.pageX-startLeft+"px";}
+        var ttt = startLeft - Math.abs(puzzles[getIdFalseFromPosition(startLeft, startTop)].positionX);
 
-        moveElem.style.top = e.pageY - startTop + "px";
+        console.log(puzzleWidth +" "+ e.target.offsetLeft+" "+ttt);
+        console.log(e.target.offsetLeft);
+        if (e.target.offsetLeft >= 0 && (e.target.offsetLeft+puzzlePartW) <= puzzleWidth ){
+        moveElem.style.left = e.pageX-startLeft+"px";}
+        if (e.target.offsetTop >= 0 && (e.target.offsetTop+puzzlePartH) <= puzzleHeight ){
+        moveElem.style.top = e.pageY - startTop + "px";}
 
     }
     function countPuzzleOffsetX(id_false){
