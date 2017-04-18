@@ -94,29 +94,30 @@ for (let i=puzzles.length-1; i>=0; i--){
     puzzle.addEventListener('mouseup', function(e){
      console.log("mouseup");
         moveElem.style.zIndex = 0;
-       // console.log(e.pageX+ " " + e.pageY);
+        console.log(e.target);
         puzzleForChangeID = getIdFalseFromPosition(e.pageX, e.pageY);
         moveElem.removeEventListener("mousemove", move);
-        changePuzzlePlace(selectedPuzzleID, puzzleForChangeID);
+        console.log(selectedPuzzleID+" "+ puzzleForChangeID);
+        if(selectedPuzzleID == puzzleForChangeID){
+            moveElem.style.left = "0px";
+            moveElem.style.top = "0px";
+        }else{
+        changePuzzlePlace(selectedPuzzleID, puzzleForChangeID)};
        
     })
-   
 
-    var puzzlePadLeft = puzzle.offsetLeft;
-    var puzzlePadTop = puzzle.offsetTop;
-    console.log(puzzlePadTop+"top");
+
     function move(e){
         console.log("move");
         moveElem.style.zIndex = 10;
-       // moveElem.style.left =  parseInt(moveElem.style.left)+e.pageX- startLeft +  "px";
-        var ttt = startLeft - Math.abs(puzzles[getIdFalseFromPosition(startLeft, startTop)].positionX);
-
-        console.log(puzzleWidth +" "+ e.target.offsetLeft+" "+ttt);
-        console.log(e.target.offsetLeft);
-        if (e.target.offsetLeft >= 0 && (e.target.offsetLeft+puzzlePartW) <= puzzleWidth ){
-        moveElem.style.left = e.pageX-startLeft+"px";}
-        if (e.target.offsetTop >= 0 && (e.target.offsetTop+puzzlePartH) <= puzzleHeight ){
-        moveElem.style.top = e.pageY - startTop + "px";}
+        if (e.target.offsetLeft > 0 || (e.target.offsetLeft+puzzlePartW) <= puzzleWidth ){
+            console.log("left: "+(e.pageX-startLeft));
+            moveElem.style.left = e.pageX-startLeft+"px";
+        }
+        if (e.target.offsetTop > 0 || (e.target.offsetTop+puzzlePartH) <= puzzleHeight ){
+           console.log("top: "+(e.pageY - startTop));
+            moveElem.style.top = e.pageY - startTop + "px";
+        }
 
     }
     function countPuzzleOffsetX(id_false){
@@ -135,7 +136,6 @@ for (let i=puzzles.length-1; i>=0; i--){
               
            //    console.log(offsetX +"<="+ upCoordX+ " && "+ upCoordX + "<=" + (offsetX+puzzlePartW) +" && "+ offsetY+" <= "+upCoordY+ " && "+ upCoordY +" <= " + (offsetY+puzzlePartH ));
                 if(offsetX <= upCoordX && upCoordX <= offsetX+puzzlePartW && offsetY <= upCoordY &&  upCoordY <= offsetY+puzzlePartH ){
-
                     return puzzles[i].id_false;
                 }
           //  }
