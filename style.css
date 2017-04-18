@@ -1,0 +1,134 @@
+/* RESET CSS START */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* RESET CSS END */
+html, body{
+    height: 100%;
+}
+.wrapper-start{
+    background-image: url(https://s3-eu-west-1.amazonaws.com/wagawin-ad-platform/media/testmode/banner-landscape.jpg);
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.wrapper-end{
+    min-height: 100%;
+    height: 100%;
+    padding: 3%;
+    box-sizing: border-box;
+    background: #DCDCDC;
+    background: -webkit-linear-gradient(45deg, #DCDCDC, #DCDCDC, #FDFDFD); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(45deg, #DCDCDC, #DCDCDC, #FDFDFD); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(45deg, #DCDCDC, #DCDCDC, #FDFDFD); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(45deg, #DCDCDC, #DCDCDC, #FDFDFD); /* Standard syntax */
+}
+.puzzle{
+    width:95%;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+.steps{
+    position: absolute;
+    top:40%;
+    left:45%;
+    color:rgba(255, 255, 255, 0.8);
+    font-size:0em;
+    animation: font-grow 1s 1 linear;
+}
+.clear{
+    clear: both;
+}
+@keyframes font-grow {
+  0% {
+   font-size:0em;
+    }
+  50%{
+      text-shadow: 1px 2px 2px #000000;
+      font-size: 12em;
+      color:rgba(255, 255, 255, 0.9);
+    }
+  100% {
+    font-size:15em;
+    color:rgba(255, 255, 255, 0);
+    }
+}
+.puzzle-part{
+    float: left;
+    max-width: 24%;
+    margin: 0.5px;
+    position: relative;
+    background: url(https://s3-eu-west-1.amazonaws.com/wagawin-ad-platform/media/testmode/banner-landscape.jpg) no-repeat;
+}
+.controls{
+    display: inline-block;
+    vertical-align: top;
+}
+.cancel-btn{
+    position: relative;
+    height: 6%;
+}
+.time-mng{
+    background-image: url(./img/counter_background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 94%;
+    padding: 5px;
+}
+.timer{
+    background-color: #778FD5;
+    height: 98%;
+    width: 100%;
+    animation: top-to-bottom 21s linear  1 ;
+}
+
+@keyframes top-to-bottom {
+    0%{
+        height: 98%;
+    }
+    100%{
+        height: 0%;
+    }
+
+}
